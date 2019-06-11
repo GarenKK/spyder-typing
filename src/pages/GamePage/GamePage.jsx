@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { userActions, getText } from '../actions';
-import { Typing } from '../components/Typing';
+import { userActions, getText } from '../../actions';
+import { Typing } from '../../components/Typing';
 
 class GamePage extends React.Component {
     constructor(props) {

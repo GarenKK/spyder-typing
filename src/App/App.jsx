@@ -5,10 +5,10 @@ import { connect } from 'react-redux';
 import { history } from '../helpers';
 import { alertActions } from '../actions';
 import { PrivateRoute } from '../components/PrivateRoute';
-import { HomePage } from '../HomePage';
-import { GamePage } from '../GamePage';
-import { LoginPage } from '../LoginPage';
-import { RegisterPage } from '../RegisterPage';
+import { HomePage } from '../pages/HomePage';
+import { GamePage } from '../pages/GamePage';
+import { LoginPage } from '../pages/LoginPage';
+import { RegisterPage } from '../pages/RegisterPage';
 import { MyHeader } from '../components/MyHeader';
 
 import './App.css';

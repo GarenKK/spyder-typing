@@ -154,8 +154,29 @@ class Typing extends React.Component {
 			score
 		} = this.state;
 
+    let timerWidthPercentage = (time / TIME_LIMIT * 100) + '%';
+    let completionWidthPercentage = Math.round(completion) + '%';
+    let wpmHeightPercentage = 100 - Math.round(wpm) + '%';
 		return (
 			<div>
+        <h5>Time: { MS(TIME_LIMIT - time) }</h5>
+        <div className="progress">
+          <div className="progress-bar bg-info"
+            style={{ width: timerWidthPercentage }} role="progressbar"/>
+        </div>
+        <h5>Completion: { completionWidthPercentage }</h5>
+        <div className="progress">
+          <div className="progress-bar bg-success"
+            style={{ width: completionWidthPercentage }} role="progressbar"/>
+        </div>
+        <div className="wpm d-flex flex-column align-items-center">
+          <div className="wpm-bar progress">
+            <div className="wpm-value"/>
+            <div className="wpm-mask"
+              style={{ height: wpmHeightPercentage }}/>
+          </div>
+          <h5 className="mt-3">WPM: { Math.round(wpm) }</h5>
+        </div>
 				<h4 className="target-text">
 					{targetText}
 					<div className="completed-text">
@@ -166,6 +187,7 @@ class Typing extends React.Component {
 				</h4>
 				<h4>
 					<input
+            className="word-input"
 						type="text"
 						name="title"
 						autoComplete="off"
@@ -183,11 +205,8 @@ class Typing extends React.Component {
 				</h4>
 				<br/>
 				<h5 className="mt-3">
-					<p>timer: { MS(TIME_LIMIT - time) }</p>
-					<p>wpm: { Math.round(wpm) }</p>
-					<p>completion: { Math.round(completion) }%</p>
-					<p>mistakes: { mistakes }</p>
-					<p>accuracy: { Math.round(accuracy) }%</p>
+					<p>Mistakes: { mistakes }</p>
+					<p>Accuracy: { Math.round(accuracy) }%</p>
 				</h5>
 				{
 					this.state.status === 'endedGame' &&
