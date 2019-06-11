@@ -1,0 +1,5 @@
+export const textConstants = {
+    TEXT_REQUEST: 'TEXT_GET_REQUEST',
+    TEXT_SUCCESS: 'TEXT_GET_SUCCESS',
+    TEXT_FAILURE: 'TEXT_GET_FAILURE'
+};

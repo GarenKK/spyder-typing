@@ -1,0 +1,27 @@
+.target-text {
+	position: relative;
+}
+
+.completed-text {
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: green;
+}
+
+.current-text {
+	color: blue;
+}
+
+.selected-text {
+	text-decoration: underline;
+	color: black;
+}
+
+.return-button {
+  text-decoration: none !important;
+}
+
+.info-text {
+  font-size: 1.1rem;
+}

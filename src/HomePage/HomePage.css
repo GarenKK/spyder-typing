@@ -1,0 +1,18 @@
+.scoreboard {
+    display: inline-block;
+    border: 1px solid black;
+    padding: 2rem 4rem;
+}
+
+.value-text {
+  font-size: 1rem;
+}
+
+.separator {
+  height: 1px;
+  background-color: #eee;
+}
+
+.play-btn {
+  width: 30rem;
+}

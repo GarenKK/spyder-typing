@@ -1,0 +1,14 @@
+#MyHeader {
+  height: 5rem;
+  padding: 1.25rem 8rem;
+  background-color: darkgray;
+  border-bottom: 0.25rem solid gray;
+}
+
+.user-icon {
+  width: 2rem;
+}
+
+.btn-active {
+  background-color: black;
+}
