@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { userActions } from '../../actions';
@@ -40,7 +40,7 @@ class RegisterPage extends React.Component {
         const { user } = this.state;
         const { dispatch } = this.props;
         if (user.firstName && user.lastName && user.username && user.password) {
-            dispatch(userActions.register(user));
+            dispatch(userActions.register(user, () => {this.props.history.push("/")}));
         }
     }
 
@@ -99,5 +99,5 @@ function mapStateToProps(state) {
     };
 }
 
-const connectedRegisterPage = connect(mapStateToProps)(RegisterPage);
+const connectedRegisterPage = connect(mapStateToProps)(withRouter(RegisterPage));
 export { connectedRegisterPage as RegisterPage };

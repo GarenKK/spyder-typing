@@ -5,13 +5,17 @@
     "type": "git",
     "url": "https://github.com/GarenKK/spyder-typing.git"
   },
+  "homepage": "https://garenkk.github.io/spyder-typing",
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "axios": "^0.19.0",
+    "gh-pages": "^2.0.1",
     "history": "^4.6.3",
     "moment": "^2.24.0",
     "pretty-ms": "^5.0.0",

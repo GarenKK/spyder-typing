@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { userActions } from '../../actions';
@@ -33,7 +33,7 @@ class LoginPage extends React.Component {
         const { username, password } = this.state;
         const { dispatch } = this.props;
         if (username && password) {
-            dispatch(userActions.login(username, password));
+            dispatch(userActions.login(username, password, () => {this.props.history.push("/")}));
         }
     }
 
@@ -78,5 +78,5 @@ function mapStateToProps(state) {
     };
 }
 
-const connectedLoginPage = connect(mapStateToProps)(LoginPage);
+const connectedLoginPage = connect(mapStateToProps)(withRouter(LoginPage));
 export { connectedLoginPage as LoginPage }; 

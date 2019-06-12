@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { history } from '../helpers';
@@ -25,31 +25,31 @@ class App extends React.Component {
     }
 
     shouldHideHeader(pathname) {
-      return pathname == '/login' || pathname == '/register'
+        return pathname == '#/login' || pathname == '#/register';
     }
 
     render() {
         const { alert } = this.props;
-        const hideHeader = this.shouldHideHeader(window.location.pathname)
+        const hideHeader = this.shouldHideHeader(window.location.hash);
         return (
-            <div>
-                { !hideHeader && <MyHeader /> }
-                <div className="container pt-5 pb-5">
-                    <div>
-                        {alert.message &&
-                            <div className={`alert ${alert.type}`}>{alert.message}</div>
-                        }
-                        <Router history={history}>
-                            <div>
+            <HashRouter>
+                <div>
+                    { !hideHeader && <MyHeader /> }
+                    <div className="container pt-5 pb-5">
+                        <div>
+                            {alert.message &&
+                                <div className={`alert ${alert.type}`}>{alert.message}</div>
+                            }
+                            <Switch>
                                 <PrivateRoute exact path="/" component={HomePage} />
                                 <PrivateRoute exact path="/game" component={GamePage} />
                                 <Route path="/login" component={LoginPage} />
                                 <Route path="/register" component={RegisterPage} />
-                            </div>
-                        </Router>
+                            </Switch>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </HashRouter>
         );
     }
 }

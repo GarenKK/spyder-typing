@@ -11,7 +11,7 @@ export const userActions = {
     saveData
 };
 
-function login(username, password) {
+function login(username, password, next) {
     return dispatch => {
         dispatch(request({ username }));
 
@@ -19,7 +19,7 @@ function login(username, password) {
             .then(
                 user => { 
                     dispatch(success(user));
-                    history.push('/');
+                    next();
                 },
                 error => {
                     dispatch(failure(error.toString()));
@@ -38,7 +38,7 @@ function logout() {
     return { type: userConstants.LOGOUT };
 }
 
-function register(user) {
+function register(user, next) {
     return dispatch => {
         dispatch(request(user));
 
@@ -46,7 +46,7 @@ function register(user) {
             .then(
                 user => { 
                     dispatch(success());
-                    history.push('/login');
+                    next();
                     dispatch(alertActions.success('Registration successful'));
                 },
                 error => {
