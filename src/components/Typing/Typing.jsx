@@ -4,7 +4,7 @@ import MS from 'pretty-ms';
 
 import './Typing.css'
 
-const TIME_LIMIT = 60000;
+const TIME_LIMIT = 3 * 60 * 1000; // 3 minutes
 
 class Typing extends React.Component {
 	constructor(props) {
